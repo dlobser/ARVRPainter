@@ -16,6 +16,12 @@ public class Blitter : MonoBehaviour {
 	Vector2 prevCoord2;
 	public int steps = 1;
 
+	float width = .005f;
+	float opacity = 1;
+
+	bool drawing;
+	bool wasDrawing;
+
 	List<Vector2> controls;
 	// Use this for initialization
 	void Start () {
@@ -40,49 +46,84 @@ public class Blitter : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Z)) {
 			mat.SetFloat ("_Mult", 0);
 		}
-		if (mouse.beenHit && mouse.hitCoord!=prevCoord) {
+		if (Input.GetKeyUp (KeyCode.P)) {
+			opacity *= 2;
+			lineMat.SetFloat ("resolution", opacity);
+		}
+		if (Input.GetKeyUp (KeyCode.O)) {
+			opacity *= .5f;
+			lineMat.SetFloat ("resolution", opacity);
+		}
+		if (Input.GetKeyUp (KeyCode.L)) {
+			width *= 2;
+			lineMat.SetFloat ("Thickness", width);
+		}
+		if (Input.GetKeyUp (KeyCode.K)) {
+			width *= .5f;
+			lineMat.SetFloat ("Thickness", width);
+		}
 
-			Vector2 anchor1 = (prevCoord-prevCoord2) + prevCoord;
 
-			Vector2 anchora = Vector2.Lerp (anchor1, prevCoord,0.5f);
-			Vector2 anchorb = Vector2.Lerp(anchor1,mouse.hitCoord,0.5f);
-			Vector2 lerped2=Vector2.Lerp(anchora,anchorb,0.5f);
 
-			Vector2 next = (mouse.hitCoord-prevCoord) + mouse.hitCoord;
-			Vector2 lerped = Vector2.Lerp (prevCoord, mouse.hitCoord, .5f);
+		wasDrawing = drawing;
+
+		if (mouse.beenHit)
+			drawing = true; 
+		else
+			drawing = false;
+
+//		Debug.Log (Input.GetMouseButtonDown (0) || !wasDrawing && drawing);
+		
+		if (Input.GetMouseButtonDown (0) || !wasDrawing && drawing) {
+			prevCoord = mouse.hitCoord;
+			prevCoord2 = prevCoord;
+		}
+
+			if (Input.GetMouseButton (0) && drawing) {
+//		if (mouse.beenHit && mouse.hitCoord!=prevCoord) {
+
+				Vector2 anchor1 = (prevCoord - prevCoord2) + prevCoord;
+
+				Vector2 anchora = Vector2.Lerp (anchor1, prevCoord, 0.5f);
+				Vector2 anchorb = Vector2.Lerp (anchor1, mouse.hitCoord, 0.5f);
+				Vector2 lerped2 = Vector2.Lerp (anchora, anchorb, 0.5f);
+
+				Vector2 next = (mouse.hitCoord - prevCoord) + mouse.hitCoord;
+				Vector2 lerped = Vector2.Lerp (prevCoord, mouse.hitCoord, .5f);
 //			Vector2 lerped2 = Vector2.Lerp (anchor1, lerped, .5f);
 
-			AddToControls (prevCoord2);
-			AddToControls (prevCoord);
-			AddToControls (mouse.hitCoord);
-			AddToControls (next);
+				AddToControls (prevCoord2);
+				AddToControls (prevCoord);
+				AddToControls (mouse.hitCoord);
+				AddToControls (next);
 
 //			AddToControls (Vector2.zero);
 //			AddToControls (Vector2.left);
 //			AddToControls (Vector2.up);
 //			AddToControls (Vector2.one);
+//			int dist = (int) Mathf.Max(1.0f,(Vector2.Distance(prevCoord,mouse.hitCoord)*2));
 
-			for (int i = 0; i < steps; i++) {
+				for (int i = 0; i < steps; i++) {
 
 //				Vector2 aa = bezier (prevCoord, lerped2, mouse.hitCoord, (float)i / (float)(steps));
 //				Vector2 bb = bezier (prevCoord, lerped2, mouse.hitCoord, (float)(i+1) / (float)(steps));
 
-				Vector2 aa = GetSplinePos ((float)i / (float)(steps));
-				Vector2 bb = GetSplinePos ((float)(i+1) / (float)(steps));
+					Vector2 aa = GetSplinePos ((float)i / (float)(steps));
+					Vector2 bb = GetSplinePos ((float)(i + 1) / (float)(steps));
 
 
-				pos = new Vector4(aa.x,aa.y,bb.x,bb.y);
-				lineMat.SetVector ("_Pos", pos);
+					pos = new Vector4 (aa.x, aa.y, bb.x, bb.y);
+					lineMat.SetVector ("_Pos", pos);
 
-				Graphics.Blit (C, B, lineMat);
-				Graphics.Blit (B, C, mat);
+					Graphics.Blit (C, B, lineMat);
+					Graphics.Blit (B, C, mat);
+				}
+
+				prevCoord2 = prevCoord;
+				prevCoord = mouse.hitCoord;
+
 			}
-
-			prevCoord2 = prevCoord;
-			prevCoord  = mouse.hitCoord;
-
-		}
-	
+		
 	}
 
 	void AddToControls(Vector2 control){
