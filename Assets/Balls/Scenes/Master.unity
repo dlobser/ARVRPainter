@@ -555,10 +555,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMinSeparation: 0
-  ball: {fileID: 584206505}
+  ball: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
   balls: []
   amount: 200
-  minMax: {x: 0.12, y: 0.18}
+  minMax: {x: 0.15, y: 0.25}
   clip: {x: 100, y: 100}
 --- !u!1 &360598901
 GameObject:
@@ -741,6 +741,7 @@ MonoBehaviour:
   - {fileID: 1510730540}
   tex: []
   GridTex: {fileID: 2800000, guid: 3932548277d56427d9774bb85223a78b, type: 3}
+  speed: 1
 --- !u!4 &482602876
 Transform:
   m_ObjectHideFlags: 0
@@ -752,75 +753,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &584206505 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a,
-    type: 2}
-  m_PrefabInternal: {fileID: 687344959}
---- !u!1001 &687344959
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026495336268736, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114366898237810302, guid: 01c7c25a3f4be48c6b329e9e3664b15a,
-        type: 2}
-      propertyPath: audi.Array.data[0]
-      value: 
-      objectReference: {fileID: 2082779953}
-    - target: {fileID: 114366898237810302, guid: 01c7c25a3f4be48c6b329e9e3664b15a,
-        type: 2}
-      propertyPath: audi.Array.data[1]
-      value: 
-      objectReference: {fileID: 1548607841}
-    - target: {fileID: 114366898237810302, guid: 01c7c25a3f4be48c6b329e9e3664b15a,
-        type: 2}
-      propertyPath: audi.Array.data[2]
-      value: 
-      objectReference: {fileID: 46465689}
-    - target: {fileID: 114366898237810302, guid: 01c7c25a3f4be48c6b329e9e3664b15a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1022757604
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +782,7 @@ Transform:
   m_Children:
   - {fileID: 34077890}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030733810
 GameObject:
@@ -904,10 +838,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMinSeparation: 0
-  ball: {fileID: 584206505}
+  ball: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
   balls: []
   amount: 200
-  minMax: {x: 0.12, y: 0.18}
+  minMax: {x: 0.15, y: 0.25}
   clip: {x: 100, y: 100}
 --- !u!1 &1119542198
 GameObject:
@@ -963,10 +897,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMinSeparation: 0
-  ball: {fileID: 584206505}
+  ball: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
   balls: []
   amount: 200
-  minMax: {x: 0.12, y: 0.18}
+  minMax: {x: 0.15, y: 0.25}
   clip: {x: 100, y: 100}
 --- !u!1 &1196403497
 GameObject:
@@ -1000,7 +934,36 @@ Transform:
   - {fileID: 1030733811}
   - {fileID: 1119542199}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1200742728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1200742729}
+  m_Layer: 0
+  m_Name: CamContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1200742729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200742728}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1236885139}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236885135
 GameObject:
@@ -1076,12 +1039,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1236885135}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 107516308}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1200742729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1236885140
@@ -1369,10 +1332,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMinSeparation: 0
-  ball: {fileID: 584206505}
+  ball: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
   balls: []
   amount: 200
-  minMax: {x: 0.12, y: 0.18}
+  minMax: {x: 0.15, y: 0.25}
   clip: {x: 100, y: 100}
 --- !u!1 &1453784498
 GameObject:
@@ -1428,10 +1391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMinSeparation: 0
-  ball: {fileID: 584206505}
+  ball: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
   balls: []
   amount: 200
-  minMax: {x: 0.12, y: 0.18}
+  minMax: {x: 0.15, y: 0.25}
   clip: {x: 100, y: 100}
 --- !u!1 &1485089501
 GameObject:
@@ -1785,135 +1748,8 @@ Transform:
   - {fileID: 1548607842}
   - {fileID: 46465690}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1926478265 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1396770173761846, guid: 01c7c25a3f4be48c6b329e9e3664b15a,
-    type: 2}
-  m_PrefabInternal: {fileID: 687344959}
---- !u!114 &1926478274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1926478265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de8327606b864fc88c9a738796d9818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notes: 
-  val:
-    debug: 0
-    type: 3
-    manualTriggers: []
-    triggerType: 0
-    blocking: 0
-    killOthersOnStart: 0
-    blockOnTrigger: 0
-    maxTriggers: 0
-    findObjectInHierarchy: 0
-    objectName: 
-    objectToModify: {fileID: 0}
-    populateFromStrings: 0
-    objectNames: []
-    objectsToModify: []
-  audi:
-  - {fileID: 8300000, guid: b3d58442575f94a1491c9f010ec3e09e, type: 3}
-  - {fileID: 8300000, guid: 4a0a1ccaa698a4e8982375d05aea4a9e, type: 3}
-  - {fileID: 8300000, guid: 2ecd03205898d45df92b55fa17b2d7bd, type: 3}
-  audioSource: {fileID: 0}
-  disableAfterPlay: 0
-  randomizePitch: 0
-  pitchLowHigh: {x: 1, y: 1}
-  volume: 1
---- !u!82 &1926478275
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1926478265}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 2.5
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0.029584885
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.9437869
-      value: 1.0039684
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!1 &1938169769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,10 +1779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMinSeparation: 0
-  ball: {fileID: 584206505}
+  ball: {fileID: 1008730544885392, guid: 01c7c25a3f4be48c6b329e9e3664b15a, type: 2}
   balls: []
   amount: 200
-  minMax: {x: 0.12, y: 0.18}
+  minMax: {x: 0.15, y: 0.25}
   clip: {x: 100, y: 100}
 --- !u!4 &1938169771
 Transform:
