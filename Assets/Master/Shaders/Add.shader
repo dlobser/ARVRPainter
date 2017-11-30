@@ -50,16 +50,55 @@
 				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
-			
+
+//			fixed4 frag (v2f i) : SV_Target
+//			{
+//				// sample the texture
+//				float4 col2 = tex2D(_MainTex2, i.uv);
+//				float mult = max(0,col2.x-.5)*2;
+//
+//				float4 col = tex2D(_MainTex, i.uv );//- float2(0,-.02)*mult);
+//				float4 col4 = tex2D(_MainTex2, i.uv);// - float2(0,-.02)*mult);
+//
+////				float4 col = tex2D(_MainTex, i.uv - float2(0,-.02)*mult);
+//				float4 col4b = tex2D(_MainTex2, i.uv - float2(0,-.001));
+////				col4+=max(0,col4b.x-3)*2;
+//
+//				float4 col3 = lerp(max(0, col + (col4+max(0,col4b.x-3) )), max(0,col4 - col), _Mult);// (1 - col.x), _Mult);
+//
+////				float4 col6 = max(0,col3-1);
+////				float4 col7 = lerp(float4(0,0,1,1),float4(1,0,0,1),col6);
+//				// apply fog
+////				UNITY_APPLY_FOG(i.fogCoord, col);
+//				return col3;// - _Color*.1;
+//			}
+
+			float4 Desaturate(float3 color, float Desaturation)
+			{
+				float3 grayXfer = float3(0.3, 0.59, 0.11);
+				float f = dot(grayXfer, color);
+				float3 gray = float3(f,f,f);
+				return float4(lerp(color, gray, Desaturation), 1.0);
+			}
+
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				fixed4 col = tex2D(_MainTex, i.uv);
-				fixed4 col2 = tex2D(_MainTex2, i.uv);
-				fixed4 col3 = lerp( col+col2 , col2 * (1-col.x), _Mult);
+				float4 col2 = tex2D(_MainTex2, i.uv);
+				float mult = max(0,Desaturate(col2.xyz,0)-.9);
+
+				float4 col = tex2D(_MainTex, i.uv - float2(0,-.002)*mult);
+				float4 col4 = tex2D(_MainTex2, i.uv - float2(0,-.002)*mult);
+
+				float4 col4b = tex2D(_MainTex2, i.uv - float2(0,-.0004));
+
+				float4 col3 = lerp( max(0, col + (col4+max(0,Desaturate(col4b,0)-3) )) , max(0,col4 - col), _Mult);// (1 - col.x), _Mult);
+
+//				float4 col6 = max(0,col3-1);
+//				float4 col7 = lerp(float4(0,0,1,1),float4(1,0,0,1),col6);
 				// apply fog
-				UNITY_APPLY_FOG(i.fogCoord, col);
-				return col3 - _Color*.1;
+//				UNITY_APPLY_FOG(i.fogCoord, col);
+				return col3;// - _Color*.1;
 			}
 			ENDCG
 		}

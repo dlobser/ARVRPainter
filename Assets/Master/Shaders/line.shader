@@ -54,10 +54,10 @@
 				return max(l,min(h,i));
 			}
 			float drawLine(float2 UV, float2 p1, float2 p2) {
-			  float2 uv = UV / resolution;
+			  float2 uv = UV;
 
 			  float a = abs(distance(p1, uv));
-			  float a2 = clamp((a-Thickness)/-Thickness*.8,0,1);
+			  float a2 = clamp((a-Thickness)/-Thickness*.5,0,1);
 			  float b = abs(distance(p2, uv));
   			  float b2 = clamp((b-Thickness)/-Thickness*.02,0,1);
 
@@ -75,7 +75,7 @@
 			  float h = (2 / c * sqrt( p * ( p - a) * ( p - b) * ( p - c)) );
 			  float h2 = max(0,min(1,smoothstep(0.5 * Thickness, 1.5 * Thickness, h)));
 
-			  return m3*lerp(1.0, 0.0, h2 )+ a2;// + b2;
+			  return m3*lerp(1.0, 0.0, h2 );//+ a2*.5;// + b2;
 			}
 
 			
@@ -92,7 +92,7 @@
 			 float4 frag(v2f_init_customrendertexture IN) : COLOR
             {
             	fixed4 col = tex2D(_MainTex, IN.texcoord.xy) ;
-                return drawLine(IN.texcoord.xy, _Pos.xy, _Pos.zw);// + col;
+                return min(1.0,drawLine(IN.texcoord.xy, _Pos.xy, _Pos.zw)) * resolution ;//* float4(.5,1,.2,0);
             }
 			ENDCG
 		}

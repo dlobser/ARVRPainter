@@ -534,7 +534,7 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 17147f9024fe543189b6b47db7f3bcf1, type: 2}
   lineMat: {fileID: 2100000, guid: 1069b0b3329974a0b87f17bc615e7f7f, type: 2}
   pos: {x: 0, y: 0, z: 0, w: 0}
-  steps: 10
+  steps: 5
 --- !u!4 &1539382292
 Transform:
   m_ObjectHideFlags: 0

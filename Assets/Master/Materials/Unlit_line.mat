@@ -23,7 +23,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Thickness: 0.005
+    - Thickness: 0.02
     - resolution: 1
     m_Colors:
-    - _Pos: {r: 0.46442908, g: 0.6999788, b: 0.46469253, a: 0.704057}
+    - _Pos: {r: 0.76127434, g: 0.16997214, b: 0.76127434, a: 0.16997214}
