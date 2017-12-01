@@ -45,6 +45,26 @@ public class SetCubeSize : MonoBehaviour {
 			state=4;
 		}
 
+		if (Input.GetKeyUp (KeyCode.S)) {
+			PlayerPrefs.SetFloat ("parentPosX", this.transform.parent.localPosition.x);
+			PlayerPrefs.SetFloat ("parentPosY", this.transform.parent.localPosition.y);
+			PlayerPrefs.SetFloat ("parentPosZ", this.transform.parent.localPosition.z);
+			PlayerPrefs.SetFloat ("parentRotY", this.transform.parent.localEulerAngles.y);
+			PlayerPrefs.SetFloat ("scaleX", scale.x);
+			PlayerPrefs.SetFloat ("scaleY", scale.y);
+			PlayerPrefs.SetFloat ("scaleZ", scale.z);
+			PlayerPrefs.Save ();
+		}
+		if (Input.GetKeyUp (KeyCode.L)) {
+			this.transform.parent.localPosition = new Vector3 (
+				PlayerPrefs.GetFloat ("parentPosX"),
+				PlayerPrefs.GetFloat ("parentPosY"),
+				PlayerPrefs.GetFloat ("parentPosZ"));
+			this.transform.parent.localEulerAngles = new Vector3 (0, PlayerPrefs.GetFloat ("parentRotY"), 0);
+			scale.Set (PlayerPrefs.GetFloat ("scaleX"), PlayerPrefs.GetFloat ("scaleY"), PlayerPrefs.GetFloat ("scaleZ"));
+			ApplyVectors();
+		}
+
 		if (state == 3) {
 			Vector3 pos = this.transform.parent.localPosition;
 			if (Input.GetKey (KeyCode.LeftShift))
