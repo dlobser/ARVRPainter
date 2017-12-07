@@ -13,6 +13,7 @@ namespace ON{
 		public Vector2 pitchLowHigh = Vector2.one;
 		public float volume;
 		bool playedOnce = false;
+        public bool stopAudio = false;
 
 		public override void Ping()
 		{
@@ -28,7 +29,10 @@ namespace ON{
 						audi [index].pitch = Random.Range (pitchLowHigh.x, pitchLowHigh.y);
 					if (audi [index] != null) {
 						audi [index].volume = volume;
-						audi [index].Play ();
+                        if (!stopAudio)
+                            audi[index].Play();
+                        else
+                            audi[index].Stop();
 					}
 //					if (val.triggerType == pubVal.triggerParams.OnEnd) {
 //						print ("On Audio End");

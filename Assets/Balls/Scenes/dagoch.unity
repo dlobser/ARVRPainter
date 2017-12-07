@@ -890,9 +890,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1953606837530066, guid: c9075f1e4a8024443a5125b64aa22326, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114597352104952976, guid: c9075f1e4a8024443a5125b64aa22326,
+        type: 2}
+      propertyPath: timeToTrigger
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597352104952976, guid: c9075f1e4a8024443a5125b64aa22326,
+        type: 2}
+      propertyPath: returnMultiplier
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 82469068601045420, guid: c9075f1e4a8024443a5125b64aa22326,
+        type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.6025839
+      objectReference: {fileID: 0}
+    - target: {fileID: 82469068601045420, guid: c9075f1e4a8024443a5125b64aa22326,
+        type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.5169385
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114836371428215082, guid: c9075f1e4a8024443a5125b64aa22326, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c9075f1e4a8024443a5125b64aa22326, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1022757604
@@ -1301,7 +1322,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2134,6 +2155,126 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 418338, guid: cb3370c18187bb444b240cfb08dcc02f, type: 2}
   m_PrefabInternal: {fileID: 1043940037}
+--- !u!1 &2005609839 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1147283412746838, guid: c9075f1e4a8024443a5125b64aa22326,
+    type: 2}
+  m_PrefabInternal: {fileID: 614382116}
+--- !u!114 &2005609847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2005609839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc86f77f7aac54451b593f4898c0e3a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes: 
+  val:
+    debug: 0
+    type: 5
+    manualTriggers: []
+    triggerType: 0
+    blocking: 0
+    killOthersOnStart: 0
+    blockOnTrigger: 0
+    maxTriggers: 0
+    findObjectInHierarchy: 0
+    objectName: 
+    objectToModify: {fileID: 0}
+    populateFromStrings: 0
+    objectNames: []
+    objectsToModify: []
+  getAudioFromObject: 1
+  audi: []
+  disableAfterPlay: 0
+  randomizePitch: 0
+  pitchLowHigh: {x: 1, y: 1}
+  volume: 0
+  stopAudio: 1
+--- !u!114 &2005609853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2005609839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d0b7737e81d44eaa861d9a1b659920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes: 
+  val:
+    debug: 0
+    type: 0
+    manualTriggers: []
+    triggerType: 0
+    blocking: 0
+    killOthersOnStart: 0
+    blockOnTrigger: 0
+    maxTriggers: 0
+    findObjectInHierarchy: 0
+    objectName: 
+    objectToModify: {fileID: 0}
+    populateFromStrings: 0
+    objectNames: []
+    objectsToModify: []
+  baseSettings:
+    speed: 1
+    easeType: 0
+    reverse: 0
+    pingpong: 0
+  getAudioFromObject: 1
+  chooseAudio: 0
+  chosenAudio: 0
+  audios: []
+  volumeLow: 0
+  volumeHigh: 1
+  pitchLow: 0.3
+  pitchHigh: 1
+--- !u!114 &2005609854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2005609839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d0b7737e81d44eaa861d9a1b659920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes: 
+  val:
+    debug: 0
+    type: 1
+    manualTriggers:
+    - {fileID: 2005609847}
+    triggerType: 0
+    blocking: 0
+    killOthersOnStart: 0
+    blockOnTrigger: 0
+    maxTriggers: 0
+    findObjectInHierarchy: 0
+    objectName: 
+    objectToModify: {fileID: 0}
+    populateFromStrings: 0
+    objectNames: []
+    objectsToModify: []
+  baseSettings:
+    speed: 1
+    easeType: 0
+    reverse: 0
+    pingpong: 0
+  getAudioFromObject: 1
+  chooseAudio: 0
+  chosenAudio: 0
+  audios: []
+  volumeLow: 1
+  volumeHigh: 0
+  pitchLow: 1
+  pitchHigh: 0.3
 --- !u!1 &2079357927
 GameObject:
   m_ObjectHideFlags: 0

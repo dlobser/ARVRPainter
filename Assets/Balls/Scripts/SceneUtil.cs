@@ -42,5 +42,9 @@ public class SceneUtil : MonoBehaviour {
 			Transform g = Camera.main.transform;
 			g.localPosition = new Vector3 (g.localPosition.x, g.localPosition.y + Input.GetAxis ("Mouse Y") * speed*.1f, g.localPosition.z);
 		}
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.X)) {
+            Debug.Log("Quitting");
+            Application.Quit();
+        }
 	}
 }
