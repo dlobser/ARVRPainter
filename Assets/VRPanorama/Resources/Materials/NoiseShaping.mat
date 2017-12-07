@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NoiseShaping
+  m_Shader: {fileID: 4800000, guid: ff57df270444db545b5ff53ae0b23e1d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _node_1061
+      second:
+        m_Texture: {fileID: 2800000, guid: 695a96bf5ad35b145b37061263518f2f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _node_1061_copy
+      second:
+        m_Texture: {fileID: 2800000, guid: 695a96bf5ad35b145b37061263518f2f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _node_1180
+      second: 2.44
+    - first:
+        name: _node_7978
+      second: 1
+    - first:
+        name: _node_8454
+      second: 0.53
+    - first:
+        name: _node_990
+      second: 5
+    - first:
+        name: _node_990_copy
+      second: 6.12
+    m_Colors: []

@@ -42,6 +42,8 @@ public class CirclePacker : MonoBehaviour
 		foreach (Circle c in mCircles) {
 			GameObject b =Instantiate (ball, new Vector3 (c.mCenter.x, c.mCenter.y, 0), Quaternion.identity);
 			b.transform.localScale = new Vector3 (c.mRadius, c.mRadius, c.mRadius);
+			b.GetComponentInChildren<BirdMaker> ().MakeBird ();
+			b.GetComponentInChildren<BirdMaker> ().transform.parent.gameObject.SetActive (false);
 			b.transform.localEulerAngles = Random.insideUnitSphere * 360;
 			b.transform.parent = this.transform;
 
@@ -76,6 +78,8 @@ public class CirclePacker : MonoBehaviour
 				}
 			}
 			count += Time.deltaTime;
+
+
 			yield return new WaitForSeconds (Time.deltaTime);
 		}
 

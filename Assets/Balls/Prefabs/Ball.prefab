@@ -59,6 +59,8 @@ GameObject:
   - component: {fileID: 114326453185733602}
   - component: {fileID: 82766624839744634}
   - component: {fileID: 114039739423064310}
+  - component: {fileID: 114586891559783102}
+  - component: {fileID: 114578865256108512}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -276,7 +278,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396770173761846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41602faaf563144bb9188a349ae42b62, type: 3}
   m_Name: 
@@ -366,6 +368,45 @@ MonoBehaviour:
   randomizePitch: 0
   pitchLowHigh: {x: 0.6, y: 0.9}
   volume: 1
+--- !u!114 &114578865256108512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396770173761846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c412d8fbd0ba48c69a29879a5f5b615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114586891559783102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396770173761846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13abaf1b9927d48e99094c5750af91d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: cf44f8c98029c4c4198bf2211dad1e24, type: 3}
+  - {fileID: 2800000, guid: a3605e614a873475c92d4fcd7842374c, type: 3}
+  - {fileID: 2800000, guid: b51065acd261b4f1a9e9bab91fb73603, type: 3}
+  - {fileID: 2800000, guid: dd4ba7ccf5d5048cc872f4706a06af27, type: 3}
+  - {fileID: 2800000, guid: 6a65712657a2740d998b91cf8e685ba1, type: 3}
+  - {fileID: 2800000, guid: 573cd1d30682543b8bcc12fe063cade6, type: 3}
+  - {fileID: 2800000, guid: c12ef61f06e1d4e05b37c8bf5739d75f, type: 3}
+  - {fileID: 2800000, guid: f899000ae96f74379aa63a204da075fc, type: 3}
+  - {fileID: 2800000, guid: f20b05630bdc643cd924a6a12dfa1dcb, type: 3}
+  - {fileID: 2800000, guid: 9cfd6fbfbae4e4a698277376ee8d33b6, type: 3}
+  - {fileID: 2800000, guid: 285b93a1a2631445d96679e8bac722b5, type: 3}
+  - {fileID: 2800000, guid: c35e3afe50c5b44a8872938b55fc014c, type: 3}
+  - {fileID: 2800000, guid: 56ba6ca10f00648b8a7dc9934b530058, type: 3}
+  - {fileID: 2800000, guid: efd009adb96d84d10a52a027c4ded044, type: 3}
+  - {fileID: 2800000, guid: 5949d13b51a054b83a2aa1bf6c22d3f2, type: 3}
+  - {fileID: 2800000, guid: 31d22d5f7877f40e598a43cf1d5dacc5, type: 3}
 --- !u!114 &114748089171423008
 MonoBehaviour:
   m_ObjectHideFlags: 1

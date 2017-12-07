@@ -16,6 +16,7 @@ public class SceneUtil : MonoBehaviour {
 			tex [i] = planes [i].GetComponent<MeshRenderer> ().material.mainTexture;
 			planes [i].GetComponent<MeshRenderer> ().material.mainTexture = GridTex;
 		}
+		Camera.main.transform.GetChild (0).GetComponent<Light> ().spotAngle = Camera.main.fieldOfView;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +36,7 @@ public class SceneUtil : MonoBehaviour {
 		}
 		if (Input.GetKey (KeyCode.Alpha8)) {
 			Camera.main.fieldOfView = Camera.main.fieldOfView + Input.GetAxis ("Mouse Y") * speed;
+			Camera.main.transform.GetChild (0).GetComponent<Light> ().spotAngle = Camera.main.fieldOfView;
 		}
 		if (Input.GetKey (KeyCode.Alpha9)) {
 			Transform g = Camera.main.transform;
