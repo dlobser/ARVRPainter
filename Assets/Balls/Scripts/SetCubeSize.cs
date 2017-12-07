@@ -170,15 +170,22 @@ public class SetCubeSize : MonoBehaviour {
 		cameras [4].GetComponent<Camera> ().orthographicSize = scale.z * .5f;
 		cameras [5].GetComponent<Camera> ().orthographicSize = scale.z * .5f;
 
-		cameras [0].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.y) / scale.x, 1, 1);
-		cameras [1].GetComponent<Camera> ().rect = new Rect (0, (scale.z - scale.y) / scale.z, 1, 1);
-		cameras [2].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.y) / scale.x, 1, 1);
-		cameras [3].GetComponent<Camera> ().rect = new Rect (0, (scale.z - scale.y) / scale.z, 1, 1);
-		cameras [4].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.z) / scale.x, 1, 1);
-		cameras [5].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.z) / scale.x, 1, 1);
+		//cameras [0].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.y) / scale.x, 1, 1);
+		//cameras [1].GetComponent<Camera> ().rect = new Rect (0, (scale.z - scale.y) / scale.z, 1, 1);
+		//cameras [2].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.y) / scale.x, 1, 1);
+		//cameras [3].GetComponent<Camera> ().rect = new Rect (0, (scale.z - scale.y) / scale.z, 1, 1);
+		//cameras [4].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.z) / scale.x, 1, 1);
+		//cameras [5].GetComponent<Camera> ().rect = new Rect (0, (scale.x - scale.z) / scale.x, 1, 1);
 
+        cameras[0].GetComponent<Camera>().aspect = (scale.x / scale.y);
+        cameras[1].GetComponent<Camera>().aspect = (scale.z / scale.y);
+        cameras[2].GetComponent<Camera>().aspect = (scale.x / scale.y);
+        cameras[3].GetComponent<Camera>().aspect = (scale.z / scale.y);
+        cameras[4].GetComponent<Camera>().aspect = (scale.x / scale.z);
+        cameras[5].GetComponent<Camera>().aspect = (scale.x / scale.z);
+                                                                                
 
-		cameras [1].localEulerAngles = new Vector3 (0, 90, 0);
+        cameras [1].localEulerAngles = new Vector3 (0, 90, 0);
 		cameras [2].localEulerAngles = new Vector3 (0, 180, 0);
 		cameras [3].localEulerAngles = new Vector3 (0, -90, 0);
 		cameras [4].localEulerAngles = new Vector3 (-90, 0, 0);

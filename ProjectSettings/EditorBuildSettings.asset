@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Balls/Scenes/Master.unity
     guid: f7def4d5ff99d4dcdbad00de68294370
+  - enabled: 0
+    path: Assets/Balls/Scenes/old/testDisplay.unity
+    guid: e4401c8f5f9a83349bf87787162cc5b9
+  - enabled: 1
+    path: Assets/Balls/Scenes/dagoch.unity
+    guid: 3979ee6c085a9f34b971e338e97531b0
