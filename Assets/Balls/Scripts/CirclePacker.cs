@@ -28,7 +28,7 @@ public class CirclePacker : MonoBehaviour
 
 	public int amount;
 	public Vector2 minMax;
-
+	public int setupIterations = 200;
 	public Vector2 clip;
 
 	/// <summary>
@@ -60,7 +60,7 @@ public class CirclePacker : MonoBehaviour
 	IEnumerator Solver(){
 		float count = 0;
 
-		while (count < 5) {
+		while (count < setupIterations) {
 			OnFrameMove ((long)Time.deltaTime);
 
 			for (int i = 0; i < mCircles.Count; i++) {
@@ -77,11 +77,12 @@ public class CirclePacker : MonoBehaviour
 					balls [i].transform.localPosition = new Vector3 (c.mCenter.x, c.mCenter.y, balls [i].transform.localScale.x * .5f);
 				}
 			}
-			count += Time.deltaTime;
+			count += 1;
 
 
-			yield return new WaitForSeconds (Time.deltaTime);
+			yield return null;// new WaitForSeconds (Time.deltaTime);
 		}
+//		yield return null;
 
 	}
 

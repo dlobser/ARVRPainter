@@ -14,6 +14,7 @@ namespace ON{
 		public Vector2 pitchLowHigh = Vector2.one;
 		public float volume;
 		bool playedOnce = false;
+		public bool dontInterrupt;
 
 		public override void Ping()
 		{
@@ -24,18 +25,20 @@ namespace ON{
 				base.Ping ();
 				val.triggerCounter++;
 				if (!playedOnce && audi.Length > 0) {
-					int index = (int)Mathf.Floor (Random.value * audi.Length);
-					audioSource.clip = audi [index];
-					if (randomizePitch)
-						audioSource.pitch = Random.Range (pitchLowHigh.x, pitchLowHigh.y);
-					if (audioSource != null) {
-						audioSource.volume = volume;
-						audioSource.Play ();
+					if(!audioSource.isPlaying || audioSource.isPlaying && !dontInterrupt){
+						int index = (int)Mathf.Floor (Random.value * audi.Length);
+						audioSource.clip = audi [index];
+						if (randomizePitch)
+							audioSource.pitch = Random.Range (pitchLowHigh.x, pitchLowHigh.y);
+						if (audioSource != null) {
+							audioSource.volume = volume;
+							audioSource.Play ();
+						}
+	//					if (val.triggerType == pubVal.triggerParams.OnEnd) {
+	//						print ("On Audio End");
+						StartCoroutine ("CheckPlaying", audioSource);
 					}
-//					if (val.triggerType == pubVal.triggerParams.OnEnd) {
-//						print ("On Audio End");
-					StartCoroutine ("CheckPlaying", audioSource);
-//					}
+
 				}
 				if (disableAfterPlay) {
 					this.enabled = false;
