@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SetCubeSize : MonoBehaviour {
 
+	private ConfigData configData;
+
 	public Vector3 scale;
 	public Vector3 rotate;
 	public Vector3 position;
@@ -23,6 +25,7 @@ public class SetCubeSize : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mouseScale = scale;
+		configData = GetComponent<ConfigData> ();
 	}
 	
 	// Update is called once per frame
@@ -58,7 +61,7 @@ public class SetCubeSize : MonoBehaviour {
 		}
 		*/
 
-		if (Input.GetKeyUp (KeyCode.S)) {
+		if (Input.GetKeyUp (KeyCode.S)) {   // Save field values into PlayerPrefs
 			PlayerPrefs.SetFloat ("parentPosX", this.transform.parent.localPosition.x);
 			PlayerPrefs.SetFloat ("parentPosY", this.transform.parent.localPosition.y);
 			PlayerPrefs.SetFloat ("parentPosZ", this.transform.parent.localPosition.z);
@@ -75,7 +78,7 @@ public class SetCubeSize : MonoBehaviour {
 			PlayerPrefs.SetFloat ("scaleZ", scale.z);
 			PlayerPrefs.Save ();
 		}
-		if (Input.GetKeyUp (KeyCode.L)) {
+		if (Input.GetKeyUp (KeyCode.L)) {    // Load data from PlayerPrefs into the correct gameobject fields
 			this.transform.parent.localPosition = new Vector3 (
 				PlayerPrefs.GetFloat ("parentPosX"),
 				PlayerPrefs.GetFloat ("parentPosY"),
@@ -99,6 +102,12 @@ public class SetCubeSize : MonoBehaviour {
 
 			scale.Set (PlayerPrefs.GetFloat ("scaleX"), PlayerPrefs.GetFloat ("scaleY"), PlayerPrefs.GetFloat ("scaleZ"));
 			ApplyVectors();
+		}
+		if (Input.GetKeyUp (KeyCode.W)) {   // Write PlayerPrefs to settings file on disk
+			configData.SaveConfig ();
+		}
+		if (Input.GetKeyUp (KeyCode.O)) {    // Open settings file on disk, and put data into PlayerPrefs
+			configData.LoadConfig ();
 		}
 
 		if (state == 3) {
