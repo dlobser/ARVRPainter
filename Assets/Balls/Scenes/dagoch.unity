@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34077890}
   - component: {fileID: 34077891}
+  - component: {fileID: 34077892}
   m_Layer: 0
   m_Name: RoomInside
   m_TagString: Untagged
@@ -256,6 +257,32 @@ MonoBehaviour:
   rotateSpeed: 0.5
   translateSpeed: 0.1
   scaleSpeed: 0.1
+--- !u!114 &34077892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 34077889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fef17b9dfb9b3498550f67d873b0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    parentPosX: 0
+    parentPosY: 0
+    parentPosZ: 0
+    parentRotY: 0
+    camPosY: 0
+    camFOV: 0
+    camRotX: 0
+    camRotY: 0
+    scaleX: 0
+    scaleY: 0
+    scaleZ: 0
+    timestamp: 
+  dataFileName: settings.json
+  filePath: 
 --- !u!1 &46465688
 GameObject:
   m_ObjectHideFlags: 0
