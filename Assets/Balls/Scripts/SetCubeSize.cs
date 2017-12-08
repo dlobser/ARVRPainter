@@ -95,7 +95,7 @@ public class SetCubeSize : MonoBehaviour {
 
 			Camera.main.transform.localEulerAngles = new Vector3 (
 				PlayerPrefs.GetFloat ("camRotX"),
-				PlayerPrefs.GetFloat ("camPosY"),
+				PlayerPrefs.GetFloat ("camRotY"),
 				Camera.main.transform.localEulerAngles.z
 			);
 
