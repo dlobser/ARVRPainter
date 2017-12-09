@@ -789,7 +789,7 @@ MonoBehaviour:
     objectNames: []
     objectsToModify: []
   baseSettings:
-    speed: 1
+    speed: 3
     easeType: 0
     reverse: 0
     pingpong: 0
