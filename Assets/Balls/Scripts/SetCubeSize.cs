@@ -22,12 +22,19 @@ public class SetCubeSize : MonoBehaviour {
 	public float rotateSpeed = 1;
 	public float translateSpeed = 1;
 	public float scaleSpeed = 1;
+
+	Vector3[] points;
+
+	public GameObject tracker;
+	public GameObject[] trackerPoint;
 	// Use this for initialization
 	void Start () {
 		mouseScale = scale;
 		configData = GetComponent<ConfigData> ();
+		points = new Vector3[]{ new Vector3 (-3, 0, -3), new Vector3 (-3, 0, 3), new Vector3 (3, 0, -3), new Vector3 (-3, 3, -3) };
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -72,12 +79,12 @@ public class SetCubeSize : MonoBehaviour {
 			PlayerPrefs.SetFloat ("camRotX", Camera.main.transform.localEulerAngles.x);
 			PlayerPrefs.SetFloat ("camRotY", Camera.main.transform.localEulerAngles.y);
 
-
 			PlayerPrefs.SetFloat ("scaleX", scale.x);
 			PlayerPrefs.SetFloat ("scaleY", scale.y);
 			PlayerPrefs.SetFloat ("scaleZ", scale.z);
 			PlayerPrefs.Save ();
 		}
+
 		if (Input.GetKeyUp (KeyCode.L)) {    // Load data from PlayerPrefs into the correct gameobject fields
 			this.transform.parent.localPosition = new Vector3 (
 				PlayerPrefs.GetFloat ("parentPosX"),
@@ -102,10 +109,13 @@ public class SetCubeSize : MonoBehaviour {
 
 			scale.Set (PlayerPrefs.GetFloat ("scaleX"), PlayerPrefs.GetFloat ("scaleY"), PlayerPrefs.GetFloat ("scaleZ"));
 			ApplyVectors();
+			SetPosition (false);
 		}
+
 		if (Input.GetKeyUp (KeyCode.W)) {   // Write PlayerPrefs to settings file on disk
 			configData.SaveConfig ();
 		}
+
 		if (Input.GetKeyUp (KeyCode.O)) {    // Open settings file on disk, and put data into PlayerPrefs
 			configData.LoadConfig ();
 		}
@@ -139,7 +149,39 @@ public class SetCubeSize : MonoBehaviour {
 		if (state == 0) {
 			ApplyVectors ();
 			SetPosition (true);
+			trackerPoint [0].transform.parent.position = this.transform.parent.localPosition;
+			state = 4;
 		}
+
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.DownArrow)) {
+			points [0] = tracker.transform.position;
+			trackerPoint [0].transform.position = points [0];
+		}
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.LeftArrow)) {
+			points [1] = tracker.transform.position;
+			trackerPoint [1].transform.position = points [1];
+		}
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.RightArrow)) {
+			points [2] = tracker.transform.position;
+			trackerPoint [2].transform.position = points [2];
+		}
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.UpArrow)) {
+			points [3] = tracker.transform.position;
+			trackerPoint [3].transform.position = points [3];
+		}
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.F)) {
+			AlignToTracker ();
+		}
+	}
+
+	void AlignToTracker(){
+		this.transform.parent.position = points [0];
+		this.transform.parent.transform.LookAt (points [1]);
+//		this.transform.parent.Rotate (new Vector3 (0, 180, 0));
+		scale = new Vector3(Vector3.Distance(points[0],points[2]),Vector3.Distance(points[0],points[3]),Vector3.Distance(points[0],points[1]));
+		ApplyVectors ();
+		SetPosition (false);
+		this.transform.parent.position = points [0];
 
 	}
 
@@ -204,8 +246,8 @@ public class SetCubeSize : MonoBehaviour {
 	}
 
 	void SetPosition(bool doParent){
-		this.transform.localPosition = new Vector3 (-scale.x * .5f, 0, -scale.z * .5f);
+		this.transform.localPosition = new Vector3 (scale.x * .5f, 0, scale.z * .5f);
 		if(doParent)
-			this.transform.parent.localPosition = new Vector3 (scale.x * .5f, 0, scale.z * .5f);
+			this.transform.parent.localPosition = new Vector3 (-scale.x * .5f, 0, -scale.z * .5f);
 	}
 }

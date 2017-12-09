@@ -11,6 +11,7 @@ public class SceneUtil : MonoBehaviour {
 	public float speed = 1;
 	public AudioSource music;
 	public GameObject UI;
+	public GameObject trackingMarkers;
 	// Use this for initialization
 	void Start () {
 		tex = new Texture[planes.Length];
@@ -28,6 +29,7 @@ public class SceneUtil : MonoBehaviour {
 			for (int i = 0; i < tex.Length; i++) {
 				planes [i].GetComponent<MeshRenderer> ().material.mainTexture = tex[i];
 			}
+			trackingMarkers.SetActive (false);
 		}
 		if (Input.GetKeyUp (KeyCode.T)) {
 			UI.SetActive (!UI.activeInHierarchy);
