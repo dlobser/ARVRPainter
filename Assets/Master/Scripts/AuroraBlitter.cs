@@ -82,7 +82,7 @@ public class AuroraBlitter : MonoBehaviour {
 			if (Input.GetMouseButton (0) && drawing) {
 //		if (mouse.beenHit && mouse.hitCoord!=prevCoord) {
 
-//				Vector2 anchor1 = (prevCoord - prevCoord2) + prevCoord;
+				Vector2 anchor1 = (prevCoord - prevCoord2) + prevCoord;
 //
 //				Vector2 anchora = Vector2.Lerp (anchor1, prevCoord, 0.5f);
 //				Vector2 anchorb = Vector2.Lerp (anchor1, mouse.hitCoord, 0.5f);
@@ -91,8 +91,8 @@ public class AuroraBlitter : MonoBehaviour {
 			Vector2 up = mouse.hitCoord + Vector2.up * .1f;
 			Vector2 down = mouse.hitCoord - Vector2.up * .1f;
 
-//				Vector2 lerped = Vector2.Lerp (prevCoord, mouse.hitCoord, .5f);
-//			Vector2 lerped2 = Vector2.Lerp (anchor1, lerped, .5f);
+				Vector2 lerped = Vector2.Lerp (prevCoord, mouse.hitCoord, .5f);
+			Vector2 lerped2 = Vector2.Lerp (anchor1, lerped, .5f);
 
 //				AddToControls (prevCoord2);
 //				AddToControls (prevCoord);
@@ -105,21 +105,21 @@ public class AuroraBlitter : MonoBehaviour {
 //			AddToControls (Vector2.one);
 //			int dist = (int) Mathf.Max(1.0f,(Vector2.Distance(prevCoord,mouse.hitCoord)*2));
 
-//				for (int i = 0; i < steps; i++) {
+				for (int i = 0; i < steps; i++) {
 
-//				Vector2 aa = bezier (prevCoord, lerped2, mouse.hitCoord, (float)i / (float)(steps));
-//				Vector2 bb = bezier (prevCoord, lerped2, mouse.hitCoord, (float)(i+1) / (float)(steps));
+				Vector2 aa = bezier (prevCoord, lerped2, mouse.hitCoord, (float)i / (float)(steps));
+				Vector2 bb = bezier (prevCoord, lerped2, mouse.hitCoord, (float)(i+1) / (float)(steps));
 
 //					Vector2 aa = GetSplinePos ((float)i / (float)(steps));
 //					Vector2 bb = GetSplinePos ((float)(i + 1) / (float)(steps));
 
 					
-				pos = new Vector4 (up.x, up.y, down.x, down.y);//, bb.x, bb.y);
+					pos = new Vector4 (aa.x, aa.y, bb.x, bb.y);//up.x, up.y, down.x, down.y);//, bb.x, bb.y);
 					lineMat.SetVector ("_Pos", pos);
 
 					Graphics.Blit (C, B, lineMat);
 					Graphics.Blit (B, C, mat);
-//				}
+				}
 
 				prevCoord2 = prevCoord;
 				prevCoord = mouse.hitCoord;
